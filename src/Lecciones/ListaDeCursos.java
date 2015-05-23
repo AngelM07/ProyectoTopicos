@@ -1,3 +1,5 @@
+package Lecciones;
+
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-@SuppressWarnings("serial")
+import org.omg.CORBA.Principal;
+
+
+@SuppressWarnings({ "serial", "deprecation" })
 public class ListaDeCursos extends JFrame implements ActionListener, MouseListener{
 
     JButton button1, jButton1, jButton2, jButton3, jButton4, jButton5, jButton6,jButton7;
@@ -20,7 +25,7 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
     public ListaDeCursos() {
         initComponents();
     }
-    @SuppressWarnings("deprecation")
+    
 	private void initComponents() {
 
         jButton1 = new JButton("Leccion #1");
@@ -47,6 +52,9 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
         label4.setText("Nivel Avanzado");
         button1.setLabel("button1");
 
+        this.setPreferredSize(new java.awt.Dimension(1000, 700));
+        this.setResizable(false);
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,7 +228,7 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
 	}
 	public void actionPerformed(ActionEvent e) {	
 		if (e.getSource() == jButton1){
-			new Leccion1();
+			new Leccion1().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton2){
@@ -228,7 +236,7 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton3){
-			new Leccion2();
+			new Leccion2().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton4){
@@ -248,7 +256,7 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
 			ListaDeCursos.this.dispose();
 			  }
 		if(e.getSource()==button1){
-			new PantallaPrincipal();
+			new Principal();
 			ListaDeCursos.this.dispose();
 		}
 	}

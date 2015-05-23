@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Lecciones.ListaDeCursos;
+
 
 @SuppressWarnings("serial")
 public class PantallaPrincipal extends JFrame implements ActionListener {
@@ -40,6 +42,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 	public JPanel p= new JPanel(){
 	public void paintComponent(Graphics g){
 		Dimension tam=getSize();
+		System.out.println(tam);
 		g.drawImage(ifondo, 0, 0,tam.width,tam.height, null);
 	}
 	};
@@ -82,10 +85,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		}
 		
 		if(e.getSource()== lista){
-			ListaDeCursos c = new ListaDeCursos();
-			c.setVisible(true);
-			c.setSize(1000, 700);
-			c.setResizable(false);
+			new ListaDeCursos().setVisible(true);
 			PantallaPrincipal.this.dispose();
 			
 		}

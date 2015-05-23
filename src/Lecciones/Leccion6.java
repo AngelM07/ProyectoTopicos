@@ -1,17 +1,22 @@
+package Lecciones;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Recursos.Recurso;
+
 
 @SuppressWarnings("serial")
-public class Leccion7 extends JFrame implements ActionListener{
+public class Leccion6 extends JFrame implements ActionListener{
 	JButton recurso, regresar;
 	
-	Leccion7(){
+	Leccion6(){
 		
 		Initcomponentes();
 	}
@@ -19,7 +24,7 @@ public class Leccion7 extends JFrame implements ActionListener{
 	public void Initcomponentes() {
 		Dimension dim = this.getToolkit().getScreenSize();
 		this.setSize(dim);
-		this.setTitle("Leccion 7");
+		this.setTitle("Leccion 6");
 		//pantalla.setUndecorated(true);
 		this.setVisible(true);
 		this.setResizable(false);
@@ -51,11 +56,11 @@ public class Leccion7 extends JFrame implements ActionListener{
 			c.setVisible(true);
 			c.setSize(1000, 700);
 			c.setResizable(false);
-			Leccion7.this.dispose();
+			Leccion6.this.dispose();
 		}
 		if(e.getSource()==recurso){
 			new Recurso();
-			Leccion7.this.dispose();
+			Leccion6.this.dispose();
 		}
 	}
 	

@@ -1,58 +1,67 @@
+package Lecciones;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Recursos.Recurso;
+
 
 @SuppressWarnings("serial")
-public class Recurso extends JFrame implements ActionListener {
+public class Leccion7 extends JFrame implements ActionListener{
 	JButton recurso, regresar;
 	
-	Recurso(){
-		Init();
+	Leccion7(){
 		
+		Initcomponentes();
 	}
-	public void Init(){
+
+	public void Initcomponentes() {
 		Dimension dim = this.getToolkit().getScreenSize();
 		this.setSize(dim);
-		this.setTitle("Recursos");
+		this.setTitle("Leccion 7");
 		//pantalla.setUndecorated(true);
 		this.setVisible(true);
 		this.setResizable(false);
 		JPanel panel = new JPanel();
 		this.add(panel);
 	
+		
+		recurso = new JButton("Recurso");
+		regresar = new JButton("Anterior");
+		
 		regresar = new JButton("Regresar");
 		regresar.setBounds(1250, 650, 100, 60);
 		regresar.addActionListener(this);
 		
 		panel.add(regresar);
+	
+		recurso = new JButton("Recurso");
+		recurso.setBounds(1100, 650, 100, 60);
+		recurso.addActionListener(this);
+		panel.add(recurso);	
 		panel.setLayout(new BorderLayout());
-		
-		Reproducir();
+	
 	}
-	public void Reproducir() {
-		//if
-		new Multimedia();
-		//else
-		new Complementario();
-	}
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
 	
-		if(e.getSource()== regresar){
+		if(e.getSource()==regresar){
 			ListaDeCursos c = new ListaDeCursos();
 			c.setVisible(true);
 			c.setSize(1000, 700);
 			c.setResizable(false);
-			Recurso.this.dispose();
-		
+			Leccion7.this.dispose();
+		}
+		if(e.getSource()==recurso){
+			new Recurso();
+			Leccion7.this.dispose();
 		}
 	}
-
+	
 
 }

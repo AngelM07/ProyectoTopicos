@@ -2,8 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,11 +30,7 @@ public class Instrucciones extends JFrame implements ActionListener{
 				panel.setLayout(new BorderLayout());
 				
 				//BOTONES
-				regresar.setIcon(new ImageIcon(getClass().getResource("/Imagenes/INICIO.jpg")));
-				regresar.setContentAreaFilled(false); //Codigo Para Dejar Los Botones Transparentes
-				regresar.setBorder(null);//Codigo Para Quitar El Border
-		
-	}
+					}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
