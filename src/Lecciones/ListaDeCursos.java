@@ -1,148 +1,203 @@
 package Lecciones;
 
-import java.awt.Label;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import org.omg.CORBA.Principal;
 
-
-@SuppressWarnings({ "serial", "deprecation" })
+@SuppressWarnings({ "serial" })
 public class ListaDeCursos extends JFrame implements ActionListener, MouseListener{
-
-    JButton button1, jButton1, jButton2, jButton3, jButton4, jButton5, jButton6,jButton7;
-    JScrollPane jScrollPane1;  JTextArea jTextArea1;
-    Label label1, label2, label3 ,label4;
-
+	Image ifondo; URL fondo;
+	 JButton jButton1;
+     JButton jButton2;
+     JButton jButton3;
+     JButton jButton4;
+     JButton jButton5;
+     JButton jButton6;
+     JButton jButton7;
+     JButton jButton8;
+     JLabel jLabel1;
+     JLabel jLabel2;
+     JLabel jLabel3;
+     JScrollPane jScrollPane1;
+     JTextArea jTextArea1;
+	   
     public ListaDeCursos() {
         initComponents();
+        fondo = this.getClass().getResource("/Imagenes/PRe.png");
+		ifondo = new ImageIcon(fondo).getImage();
+		//this.setResizable(false);
     }
-    
-	private void initComponents() {
+    public JPanel jPanel1= new JPanel(){
+    	public void paintComponent(Graphics g){
+    		Dimension tam=getSize();
+    		//System.out.println(tam);
+    		g.drawImage(ifondo, 0, 0,tam.width,tam.height, null);
+    	}
+    	};
+    	
 
-        jButton1 = new JButton("Leccion #1");
-        jButton2 = new JButton("Leccion #3");
-        jButton3 = new JButton("Leccion #2");
-        jButton4 = new JButton("Leccion #6");
-        jButton5 = new JButton("Leccion #5");
-        jButton6 = new JButton("Leccion #4");
-        jButton7 = new JButton("Leccion #7");
-        jScrollPane1 = new JScrollPane();
-        jTextArea1 = new JTextArea();
-        label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
-        label4 = new Label();
-        button1 = new JButton();
-        
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-        label1.setText("Descripcion Del Curso");
-        label2.setText("Nivel Basico");
-        label3.setText("Nivel Intermedio");
-        label4.setText("Nivel Avanzado");
-        button1.setLabel("button1");
+   private void initComponents() {
 
-        this.setPreferredSize(new java.awt.Dimension(1000, 700));
-        this.setResizable(false);
-        
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jButton7))
-                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton5)
-                                    .addComponent(jButton4)
-                                    .addComponent(jButton6)))
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+            //jPanel1 = new javax.swing.JPanel();
+            jButton1 = new JButton();
+            jButton2 = new JButton();
+            jButton3 = new JButton();
+            jButton4 = new JButton();
+            jButton5 = new JButton();
+            jButton6 = new JButton();
+            jButton7 = new JButton();
+            jButton8 = new JButton();
+            jScrollPane1 = new JScrollPane();
+            jTextArea1 = new JTextArea();
+            jLabel1 = new JLabel();
+            jLabel2 = new JLabel();
+            jLabel3 = new JLabel();
+            
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            jButton1.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton2.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton3.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton4.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton5.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton6.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton7.setFont(new java.awt.Font("Arial", 1, 12));
+            jButton1.setText("LECCION 1");
+            jButton2.setText("LECCION 2");
+            jButton3.setText("LECCION 3");
+            jButton4.setText("LECCION 4");
+            jButton5.setText("LECCION 5");
+            jButton6.setText("LECCION 6");
+            jButton7.setText("LECCION 7");
+            
+            jTextArea1.setEditable(false);
+            jTextArea1.setColumns(20);
+            jTextArea1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+            jTextArea1.setRows(5);
+            jScrollPane1.setViewportView(jTextArea1);
+            jScrollPane1.setOpaque(false);
+            jScrollPane1.getViewport().setOpaque(false);
+            jScrollPane1.setBorder(null);
+            jScrollPane1.setViewportBorder(null);
+
+            jTextArea1.setBorder(null);
+            jTextArea1.setBackground(new Color(0, 0, 0, 0));
+            
+            jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+            jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel1.setText("NIVEL PRICIPIANTE");
+            jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+            jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel2.setText("NIVEL INTERMEDIO");
+            jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+            jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+            jLabel3.setText("NIVEL AVANZADO");
+            
+            this.setPreferredSize(new Dimension(1370, 778));
+            this.setResizable(false);
+            
+
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(379, 379, 379))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(142, 142, 142)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButton1)
-                                .addGap(11, 11, 11)
+                                .addComponent(jButton2)
                                 .addComponent(jButton3)
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6)
-                                .addGap(11, 11, 11)
+                                .addComponent(jLabel1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4)))
-                        .addGap(70, 70, 70)
-                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)
-                        .addGap(64, 64, 64)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
+                                .addComponent(jButton4)
+                                .addComponent(jButton6)
+                                .addComponent(jLabel2))
+                            .addGap(167, 167, 167))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jButton7))
+                            .addGap(350, 350, 350)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(185, 185, 185))
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(103, 103, 103)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton7)
+                            .addGap(41, 41, 41)))
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(19, 19, 19))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(200, 200, 200)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton3))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton4)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButton6)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
 
-        pack();
-        SeleccionCurso();
-    }
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+
+            pack();
+        
+            SeleccionCurso();     
+   }
+        
     public  void SeleccionCurso() {
     	jButton1.setIcon(new ImageIcon(getClass().getResource("/Imagenes/lecc.gif")));
     	jButton1.setContentAreaFilled(false); //Codigo Para Dejar Los Botones Transparentes
@@ -190,10 +245,10 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
     	jButton7.addActionListener(this);
     	
     	
-    	button1.setIcon(new ImageIcon(getClass().getResource("/Imagenes/dial.gif")));
-    	button1.setContentAreaFilled(false); //Codigo Para Dejar Los Botones Transparentes
-    	button1.setBorder(null);//Codigo Para Quitar El Border
-    	button1.addActionListener(this);
+    	jButton8.setIcon(new ImageIcon(getClass().getResource("/Imagenes/dial.gif")));
+    	jButton8.setContentAreaFilled(false); //Codigo Para Dejar Los Botones Transparentes
+    	jButton8.setBorder(null);//Codigo Para Quitar El Border
+    	jButton8.addActionListener(this);
     }
 	public void mouseClicked(MouseEvent e) {
 	}
@@ -202,19 +257,19 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
 			jTextArea1.setText("Leccion #1");
 			  }
 		if (e.getSource() == jButton2){
-			jTextArea1.setText("Leccion #3");
-			  }
-		if (e.getSource() == jButton3){
 			jTextArea1.setText("Leccion #2");
 			  }
+		if (e.getSource() == jButton3){
+			jTextArea1.setText("Leccion #3");
+			  }
 		if (e.getSource() == jButton4){
-			jTextArea1.setText("Leccion #6");
+			jTextArea1.setText("Leccion #4");
 			  }
 		if (e.getSource() == jButton5){
 			jTextArea1.setText("Leccion #5");
 			  }
 		if (e.getSource() == jButton6){
-			jTextArea1.setText("Leccion #4");
+			jTextArea1.setText("Leccion #6");
 			  }
 		if (e.getSource() == jButton7){
 			jTextArea1.setText("Leccion #7");
@@ -232,31 +287,30 @@ public class ListaDeCursos extends JFrame implements ActionListener, MouseListen
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton2){
-			new Leccion3();
-			ListaDeCursos.this.dispose();
-			  }
-		if (e.getSource() == jButton3){
 			new Leccion2().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
+		if (e.getSource() == jButton3){
+			new Leccion3().setVisible(true);
+			ListaDeCursos.this.dispose();
+			  }
 		if (e.getSource() == jButton4){
-			new Leccion6();
+			new Leccion4().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton5){
-			new Leccion5();
+			new Leccion5().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton6){
-			new Leccion4();
+			new Leccion4().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
 		if (e.getSource() == jButton7){
-			new Leccion7();
+			new Leccion7().setVisible(true);
 			ListaDeCursos.this.dispose();
 			  }
-		if(e.getSource()==button1){
-			new Principal();
+		if(e.getSource()==jButton8){
 			ListaDeCursos.this.dispose();
 		}
 	}

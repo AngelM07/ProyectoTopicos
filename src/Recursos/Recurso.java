@@ -49,10 +49,7 @@ public class Recurso extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 	
 		if(e.getSource()== regresar){
-			ListaDeCursos c = new ListaDeCursos();
-			c.setVisible(true);
-			c.setSize(1000, 700);
-			c.setResizable(false);
+			new ListaDeCursos().setVisible(true);
 			Recurso.this.dispose();
 		
 		}
